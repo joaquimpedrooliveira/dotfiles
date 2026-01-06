@@ -1,17 +1,21 @@
 [user]
 	name = Joaquim Pedro C. de Oliveira
 	email = joaquimpedrooliveira@gmail.com
+
 [core]
     pager = batcat
+
 [diff]
-    tool = meld
+    tool = vscode
 [difftool]
     prompt = false
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
+[difftool "vscode"]
+    cmd = code --wait --diff "$LOCAL" "$REMOTE"
 
 [merge]
-    tool = meld
+    tool = vscode
 [mergetool]
     # don't create backup *.orig files
     keepBackup = false
@@ -24,3 +28,5 @@
     #cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
     #
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool "vscode"]
+    cmd = code "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
