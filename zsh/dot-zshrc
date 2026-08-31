@@ -60,7 +60,7 @@ export ZSH=$HOME/.oh-my-zsh
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
+# Would you like to use another custom folder than $ZSH/custom?UTOCONNECT=false
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
@@ -69,9 +69,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':omz:plugins:eza' 'icons' yes
-plugins=(tmux fzf zsh-autosuggestions zsh-syntax-highlighting last-working-dir docker docker-compose kubectl asdf zsh-bat colored-man-pages eza zoxide)
+plugins=(tmux fzf zsh-autosuggestions zsh-syntax-highlighting last-working-dir asdf zsh-bat colored-man-pages eza zoxide)
 
+# Inicia o tmux automaticamente com o shell
 export ZSH_TMUX_AUTOSTART=true
+# Evita anexar a nova seção do tmux a uma sessão já existente,
+# permitindo várias janelas do shell
+export  ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
 
