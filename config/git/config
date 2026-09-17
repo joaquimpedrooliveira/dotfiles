@@ -2,6 +2,9 @@
 	name = Joaquim Pedro C. de Oliveira
 	email = joaquimpedrooliveira@gmail.com
 
+[includeIf "gitdir:~/git/git.serpro/"]
+    path = ~/git/git.serpro/.gitconfig
+
 [core]
     pager = batcat
 
