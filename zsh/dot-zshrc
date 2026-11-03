@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# asdf (v0.20, Go): sem plugin do omz. Basta os shims no PATH.
+# A completion é fornecida pelo carapace.
+export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+path=("$ASDF_DATA_DIR/shims" ${path:#$ASDF_DATA_DIR/shims})
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -60,7 +65,7 @@ export ZSH=$HOME/.oh-my-zsh
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?UTOCONNECT=false
+# Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
@@ -69,13 +74,22 @@ export ZSH=$HOME/.oh-my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':omz:plugins:eza' 'icons' yes
-plugins=(tmux fzf zsh-autosuggestions zsh-syntax-highlighting last-working-dir asdf zsh-bat colored-man-pages eza zoxide)
+# zsh-autosuggestions e zsh-syntax-highlighting devem vir por último,
+# com o highlighting no fim da lista para funcionar corretamente.
+plugins=(tmux fzf last-working-dir zsh-bat colored-man-pages eza zoxide zsh-autosuggestions zsh-syntax-highlighting)
+
+# ── Aceleração do compinit ────────────────────────────────────────────
+# Pula o compaudit (lento e desnecessário em máquina pessoal) e reusa o
+# dump de completions por dia, em vez de reauditar/regravar a cada abertura.
+export ZSH_DISABLE_COMPFIX=true
+export ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-$(hostname)-${ZSH_VERSION}"
+# ──────────────────────────────────────────────────────────────────────
 
 # Inicia o tmux automaticamente com o shell
 export ZSH_TMUX_AUTOSTART=false
 # Evita anexar a nova seção do tmux a uma sessão já existente,
 # permitindo várias janelas do shell
-export  ZSH_TMUX_AUTOCONNECT=false
+export ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
 
