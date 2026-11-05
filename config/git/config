@@ -33,3 +33,5 @@
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [mergetool "vscode"]
     cmd = code "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[pull]
+	rebase = false
