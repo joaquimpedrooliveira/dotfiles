@@ -4,4 +4,4 @@ font-family = "JetBrainsMono NFP"
 font-size = 11
 background-opacity = 0.95
 background-blur = true
-auto-update = download
+command = /usr/bin/zsh

@@ -35,3 +35,5 @@
     cmd = code "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [pull]
 	rebase = false
+[credential]
+	helper = store
