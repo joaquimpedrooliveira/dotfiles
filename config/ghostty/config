@@ -1,4 +1,6 @@
 # This is the configuration file for Ghostty.
+window-width = 120
+window-height = 40
 theme = Catppuccin Mocha
 font-family = "JetBrainsMono NFP"
 font-size = 11
